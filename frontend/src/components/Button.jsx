@@ -10,4 +10,4 @@ const Button = ({label, onClick}) => {
   )
 }
 
-export default Button
+export default Button;
