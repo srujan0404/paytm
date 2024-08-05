@@ -36,52 +36,48 @@ const SendMoney = () => {
 
   return (
     <>
-    <Appbar />
-    <div className="flex justify-center h-screen bg-gray-100">
-      <div className="h-full flex flex-col justify-center">
-        <div className="border h-min text-card-foreground max-w-md p-4 space-y-8 w-96 bg-white shadow-lg rounded-lg">
-          <div className="flex flex-col space-y-1.5 p-6">
-            <h2 className="text-3xl font-bold text-center">Send Money</h2>
+      <Appbar />
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
+        <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full space-y-6">
+          <h2 className="text-3xl font-bold text-center text-gray-800">
+            Send Money
+          </h2>
+          <div className="flex items-center space-x-4">
+            <div className="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center">
+              <span className="text-3xl text-white">
+                {name ? name[0].toUpperCase() : ""}
+              </span>
+            </div>
+            <h3 className="text-2xl font-semibold text-gray-700">{name}</h3>
           </div>
-          <div className="p-6">
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
-                <span className="text-2xl text-white">
-                  {name ? name[0].toUpperCase() : ""}
-                </span>
-              </div>
-              <h3 className="text-2xl font-semibold">{name}</h3>
-            </div>
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <label
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  htmlFor="amount"
-                >
-                  Amount (in Rs)
-                </label>
-                <input
-                  onChange={(e) => {
-                    setAmount(e.target.value);
-                  }}
-                  type="number"
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-                  id="amount"
-                  placeholder="Enter amount"
-                />
-              </div>
-              <button
-                onClick={handleSendMoney}
-                className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white"
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <label
+                className="block text-sm font-medium text-gray-700"
+                htmlFor="amount"
               >
-                Send Money
-              </button>
+                Amount (in Rs)
+              </label>
+              <input
+                onChange={(e) => {
+                  setAmount(e.target.value);
+                }}
+                type="number"
+                className="flex h-10 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                id="amount"
+                placeholder="Enter amount"
+              />
             </div>
+            <button
+              onClick={handleSendMoney}
+              className="w-full h-10 flex items-center justify-center rounded-md bg-green-500 text-white text-sm font-medium hover:bg-green-600 transition-colors"
+            >
+              Send Money
+            </button>
           </div>
         </div>
         <ToastContainer />
       </div>
-    </div>
     </>
   );
 };
